@@ -1,0 +1,18 @@
+CREATE TABLE Armor (
+    id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+    name                TEXT    NOT NULL,
+    defense_modifier    TEXT    NOT NULL
+);
+
+-- Queries
+insertArmor:
+INSERT INTO Armor (name,  defense_modifier) VALUES (?, ?);
+
+selectAllArmors:
+SELECT * FROM Armor;
+
+selectArmorById:
+SELECT * FROM Armor WHERE  id = ?;
+
+deleteArmorById:
+DELETE FROM Armor WHERE  id = ?;

@@ -1,0 +1,24 @@
+CREATE TABLE Profile_Contains_Path (
+    id_profile INTEGER NOT NULL,
+    id_path    INTEGER NOT NULL,
+
+    PRIMARY KEY (id_profile, id_path),
+    FOREIGN KEY (id_profile) REFERENCES Profile(id)    ON DELETE CASCADE,
+    FOREIGN KEY (id_path)    REFERENCES Path(id)       ON DELETE CASCADE
+);
+
+-- Queries
+linkPathToProfile:
+INSERT INTO Profile_Contains_Path (id_profile, id_path) VALUES (?, ?);
+
+selectPathsByProfile:
+SELECT p.*
+FROM Path p
+JOIN Profile_Contains_Path pcp ON pcp.id_path = p.id
+WHERE pcp.id_profile = ?;
+
+countPathsInProfile:
+SELECT COUNT(*) FROM Profile_Contains_Path WHERE id_profile = ?;
+
+unlinkPathFromProfile:
+DELETE FROM Profile_Contains_Path WHERE id_profile = ? AND id_path = ?;

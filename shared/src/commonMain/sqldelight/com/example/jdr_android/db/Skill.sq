@@ -1,0 +1,19 @@
+CREATE TABLE Skill (
+    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name        TEXT    NOT NULL,
+    description TEXT    NOT NULL
+);
+
+-- Queries Skill
+insertSkill:
+INSERT INTO Skill (name, description) VALUES (?, ?);
+
+selectAllSkills:
+SELECT * FROM Skill;
+
+selectSkillById:
+SELECT * FROM Skill WHERE id  = ?;
+
+deleteSkillById:
+DELETE FROM Skill WHERE id  = ?;
+

@@ -1,0 +1,18 @@
+CREATE TABLE Profile (
+    id         INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name       TEXT    NOT NULL,
+    life_dice  TEXT    NOT NULL  -- valeurs : 'D4','D6','D8','D10','D12','D20','D100'
+);
+
+-- Queries
+insert:
+INSERT INTO Profile (name, life_dice) VALUES (?, ?);
+
+selectAll:
+SELECT * FROM Profile;
+
+selectById:
+SELECT * FROM Profile WHERE  id = ?;
+
+deleteById:
+DELETE FROM Profile WHERE  id = ?;

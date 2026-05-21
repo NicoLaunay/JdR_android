@@ -1,0 +1,26 @@
+-- "Knows_PC" : un PlayableCharacter connaît des voies (Path) à un certain niveau
+CREATE TABLE Entity_Knows_Path (
+    id_entity     INTEGER NOT NULL,
+    id_path       INTEGER NOT NULL,
+    level_reached INTEGER NOT NULL DEFAULT 1,
+
+    PRIMARY KEY (id_entity, id_path),
+    FOREIGN KEY (id_entity) REFERENCES Entity(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_path)   REFERENCES Path(id)
+);
+
+-- Queries Knows
+insertKnows:
+INSERT INTO Entity_Knows_Path (id_entity, id_path, level_reached) VALUES (?, ?, ?);
+
+selectPathsByEntity:
+SELECT p.*, ekp.level_reached
+FROM Path p
+JOIN Entity_Knows_Path ekp ON ekp.id_path = p.id
+WHERE ekp.id_entity = ?;
+
+updateLevel:
+UPDATE Entity_Knows_Path SET level_reached = ? WHERE id_entity = ? AND id_path = ?;
+
+deleteKnows:
+DELETE FROM Entity_Knows_Path WHERE id_entity = ? AND id_path = ?;

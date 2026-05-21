@@ -1,0 +1,17 @@
+CREATE TABLE Race (
+    id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name    TEXT    NOT NULL
+);
+
+-- Queries
+insert:
+INSERT INTO Race (name) VALUES (?);
+
+selectAll:
+SELECT * FROM Race;
+
+selectById:
+SELECT * FROM Race WHERE id = ?;
+
+deleteById:
+DELETE FROM Race WHERE id = ?;

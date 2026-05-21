@@ -1,0 +1,18 @@
+CREATE TABLE Weapon (
+    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name        TEXT    NOT NULL,
+    description TEXT    NOT NULL DEFAULT ''
+);
+
+-- Queries Weapon
+insertWeapon:
+INSERT INTO Weapon (name, description) VALUES (?, ?);
+
+selectAllWeapons:
+SELECT * FROM Weapon;
+
+selectWeaponById:
+SELECT * FROM Weapon WHERE id = ?;
+
+deleteWeaponById:
+DELETE FROM Weapon WHERE id = ?;

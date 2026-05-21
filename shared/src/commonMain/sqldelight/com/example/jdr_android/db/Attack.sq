@@ -1,0 +1,25 @@
+CREATE TABLE Attack (
+    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_weapon   INTEGER NOT NULL,
+    attack_stat TEXT    NOT NULL,  -- ex : 'STRENGTH', 'DEXTERITY'
+    description TEXT    NOT NULL DEFAULT '',
+
+    FOREIGN KEY (id_weapon) REFERENCES Weapon(id) ON DELETE CASCADE
+
+);
+
+-- Queries Attack
+insertAttack:
+INSERT INTO Attack (id_weapon, attack_stat, description) VALUES (?, ?, ?);
+
+selectAllAttacks:
+SELECT * FROM Attack;
+
+selectAttackById:
+SELECT * FROM Attack WHERE id = ?;
+
+selectAttackByWeapon:
+SELECT * FROM Attack WHERE id_weapon = ?;
+
+deleteAttackById:
+DELETE FROM Attack WHERE id = ?;

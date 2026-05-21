@@ -1,0 +1,21 @@
+CREATE TABLE Race_Possesses_Ability (
+    id_race INTEGER NOT NULL,
+    id_ability    INTEGER NOT NULL,
+
+    PRIMARY KEY (id_race, id_ability),
+    FOREIGN KEY (id_race)       REFERENCES Race(id)             ON DELETE CASCADE,
+    FOREIGN KEY (id_ability)    REFERENCES RacialAbility(id)    ON DELETE CASCADE
+);
+
+-- Queries
+linkRaceToAbility:
+INSERT INTO Race_Possesses_Ability (id_race, id_ability) VALUES (?, ?);
+
+selectAbilitiesByRace:
+SELECT ra.*
+FROM RacialAbility ra
+JOIN Race_Possesses_Ability rpa ON rpa.id_ability = ra.id
+WHERE rpa.id_race = ?;
+
+unlinkRaceFromAbility:
+DELETE FROM Race_Possesses_Ability WHERE id_race = ? AND id_ability = ?;

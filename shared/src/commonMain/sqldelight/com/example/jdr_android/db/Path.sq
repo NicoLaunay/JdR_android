@@ -1,0 +1,25 @@
+CREATE TABLE Path (
+    id         INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_profile INTEGER NOT NULL,
+    name       TEXT    NOT NULL,
+
+    FOREIGN KEY (id_profile) REFERENCES Profile(id) ON DELETE CASCADE
+);
+
+-- Queries
+insert:
+INSERT INTO Path (id_profile, name) VALUES (?, ?);
+
+selectAll:
+SELECT * FROM Path;
+
+selectById:
+SELECT * FROM Path WHERE  id = ?;
+
+selectByProfile:
+SELECT p.*
+FROM Path p
+WHERE p.id_profile = ?;
+
+deleteById:
+DELETE FROM Path WHERE  id = ?;

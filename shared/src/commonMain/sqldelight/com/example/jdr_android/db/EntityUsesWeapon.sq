@@ -1,0 +1,22 @@
+-- "Uses" : une Entity utilise des armes
+CREATE TABLE Entity_Uses_Weapon (
+    id_entity INTEGER NOT NULL,
+    id_weapon INTEGER NOT NULL,
+
+    PRIMARY KEY (id_entity, id_weapon),
+    FOREIGN KEY (id_entity) REFERENCES Entity(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_weapon) REFERENCES Weapon(id) ON DELETE CASCADE
+);
+
+-- Queries Entity_Uses_Weapon
+equipWeapon:
+INSERT INTO Entity_Uses_Weapon (id_entity, id_weapon) VALUES (?, ?);
+
+selectWeaponsByEntity:
+SELECT w.*
+FROM Weapon w
+JOIN Entity_Uses_Weapon euw ON euw.id_weapon = w.id
+WHERE euw.id_entity = ?;
+
+unequipWeapon:
+DELETE FROM Entity_Uses_Weapon WHERE id_entity = ? AND id_weapon = ?;

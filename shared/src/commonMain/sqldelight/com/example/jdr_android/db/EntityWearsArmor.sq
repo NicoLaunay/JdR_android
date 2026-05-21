@@ -1,0 +1,22 @@
+-- "Wears" : une Entity porte des armures
+CREATE TABLE Entity_Wears_Armor (
+    id_entity INTEGER NOT NULL,
+    id_armor  INTEGER NOT NULL,
+
+    PRIMARY KEY (id_entity, id_armor),
+    FOREIGN KEY (id_entity) REFERENCES Entity(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_armor)  REFERENCES Armor(id)  ON DELETE CASCADE
+);
+
+-- Queries Entity_Wears_Armor
+equipArmor:
+INSERT INTO Entity_Wears_Armor (id_entity, id_armor) VALUES (?, ?);
+
+selectArmorsByEntity:
+SELECT a.*
+FROM Armor a
+JOIN Entity_Wears_Armor ewa ON ewa.id_armor = a.id
+WHERE ewa.id_entity = ?;
+
+unequipArmor:
+DELETE FROM Entity_Wears_Armor WHERE id_entity = ? AND id_armor = ?;

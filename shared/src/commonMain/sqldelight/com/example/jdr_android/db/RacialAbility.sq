@@ -1,0 +1,18 @@
+CREATE TABLE RacialAbility (
+    id                INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    name              TEXT    NOT NULL,
+    description       TEXT    NOT NULL
+);
+
+-- Queries
+insert:
+INSERT INTO RacialAbility (name, description) VALUES (?, ?);
+
+selectAll:
+SELECT * FROM RacialAbility;
+
+selectById:
+SELECT * FROM RacialAbility WHERE id = ?;
+
+deleteById:
+DELETE FROM RacialAbility WHERE id = ?;

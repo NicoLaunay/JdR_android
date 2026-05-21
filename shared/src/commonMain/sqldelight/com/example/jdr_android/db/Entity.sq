@@ -1,0 +1,45 @@
+-- Table de base commune à Character (jouable ou NPC) et Creature
+-- La relation XT (exclusif total) du MCD est modélisée par
+-- les tables Character et Creature qui référencent Entity.
+
+CREATE TABLE Entity (
+    id           INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_race      INTEGER,
+    name         TEXT    NOT NULL,
+    -- DECIMAL(3,1) dans le MCD → REAL en SQLite
+    level        REAL    NOT NULL,
+    age          INTEGER,
+    weight       REAL,
+    sex          TEXT    NOT NULL,   -- valeurs : 'MALE', 'FEMALE', 'OTHER'
+    type         TEXT    NOT NULL,   -- valeurs : 'HUMANOID', 'BEAST', etc.
+    size         TEXT    NOT NULL,   -- valeurs : 'TINY', 'SMALL', 'MEDIUM', 'LARGE', 'HUGE', 'GARGANTUAN'
+    strength     INTEGER NOT NULL,
+    dexterity    INTEGER NOT NULL,
+    constitution INTEGER NOT NULL,
+    intelligence INTEGER NOT NULL,
+    wisdom       INTEGER NOT NULL,
+    charisma     INTEGER NOT NULL,
+    pv_max       INTEGER NOT NULL,
+    pv           INTEGER NOT NULL,
+
+    FOREIGN KEY (id_race) REFERENCES Race(id)
+);
+
+-- Queries
+insert:
+INSERT INTO Entity (id_race, name, level, age, weight, sex, type, size,
+                    strength, dexterity, constitution, intelligence,
+                    wisdom, charisma, pv_max, pv)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+selectAll:
+SELECT * FROM Entity;
+
+selectById:
+SELECT * FROM Entity WHERE  id = ?;
+
+updatePv:
+UPDATE Entity SET pv = ? WHERE  id = ?;
+
+deleteById:
+DELETE FROM Entity WHERE  id = ?;

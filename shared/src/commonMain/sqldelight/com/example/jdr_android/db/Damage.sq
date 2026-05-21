@@ -1,0 +1,21 @@
+CREATE TABLE Damage (
+    id              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_attack       INTEGER NOT NULL,
+    damage_dice     TEXT    NOT NULL,   -- ex : 'D6', 'D8'
+    nb_damage_dice  INTEGER NOT NULL,
+    damage_modifier INTEGER NOT NULL DEFAULT 0,
+    damage_type     TEXT,   -- ex : 'SLASHING', 'FIRE', 'COLD'
+
+    FOREIGN KEY (id_attack) REFERENCES Attack(id) ON DELETE CASCADE
+);
+
+-- Queries Damage
+insertDamage:
+INSERT INTO Damage (id_attack, damage_dice, nb_damage_dice, damage_modifier, damage_type)
+VALUES (?, ?, ?, ?, ?);
+
+selectDamagesByAttack:
+SELECT * FROM Damage WHERE id_attack = ?;
+
+deleteDamageById:
+DELETE FROM Damage WHERE id = ?;
