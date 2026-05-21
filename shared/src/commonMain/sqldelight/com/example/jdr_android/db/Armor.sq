@@ -1,7 +1,7 @@
 CREATE TABLE Armor (
     id                  INTEGER PRIMARY KEY AUTOINCREMENT,
     name                TEXT    NOT NULL,
-    defense_modifier    TEXT    NOT NULL
+    defense_modifier    INTEGER NOT NULL
 );
 
 -- Queries
