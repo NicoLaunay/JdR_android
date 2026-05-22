@@ -1,7 +1,7 @@
 package com.example.jdr_android.models
 
 import com.example.jdr_android.enums.DamageType
-import enums.DiceType
+import com.example.jdr_android.enums.DiceType
 
 data class Damage(
     val id: Int,

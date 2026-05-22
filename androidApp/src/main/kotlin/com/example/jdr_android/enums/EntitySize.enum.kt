@@ -1,4 +1,4 @@
-package enums
+package com.example.jdr_android.enums
 
 enum class EntitySize(val displayName: String) {
     MINUSCULE("Minuscule"),

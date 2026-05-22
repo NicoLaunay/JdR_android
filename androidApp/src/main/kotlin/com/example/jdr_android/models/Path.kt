@@ -1,4 +1,4 @@
-package models
+package com.example.jdr_android.models
 
 data class Path(
     val id: Int,

@@ -1,4 +1,4 @@
-package enums
+package com.example.jdr_android.enums
 
 enum class DiceType(val nbSides: Int) {
     D4(4),

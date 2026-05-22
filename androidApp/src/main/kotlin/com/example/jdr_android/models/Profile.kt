@@ -1,6 +1,6 @@
-package models
+package com.example.jdr_android.models
 
-import enums.DiceType
+import com.example.jdr_android.enums.DiceType
 
 data class Profile(
     val id: Int,

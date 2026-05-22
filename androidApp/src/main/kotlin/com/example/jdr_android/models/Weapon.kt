@@ -1,6 +1,4 @@
-package models
-
-import enums.DiceType
+package com.example.jdr_android.models
 
 data class Weapon(
     val id: Int,

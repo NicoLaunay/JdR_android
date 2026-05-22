@@ -1,8 +1,7 @@
-package models
+package com.example.jdr_android.models
 
-import com.example.jdr_android.models.CharacterPath
-import enums.EntitySize
-import enums.EntityType
+import com.example.jdr_android.enums.EntitySize
+import com.example.jdr_android.enums.EntityType
 
 data class Entity(
     val name: String,
