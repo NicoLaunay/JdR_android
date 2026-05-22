@@ -13,5 +13,8 @@ SELECT * FROM Player;
 selectById:
 SELECT * FROM Player WHERE id = ?;
 
+updateById:
+UPDATE Player SET name = ? WHERE id = ?;
+
 deleteById:
 DELETE FROM Player WHERE id = ?;
