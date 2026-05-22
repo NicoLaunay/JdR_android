@@ -1,11 +1,24 @@
 CREATE TABLE Race (
     id      INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    name    TEXT    NOT NULL
+    name    TEXT    NOT NULL,
+    strength_modifier       INTEGER NOT NULL,
+    dexterity_modifier       INTEGER NOT NULL,
+    constitution_modifier       INTEGER NOT NULL,
+    intelligence_modifier       INTEGER NOT NULL,
+    wisdom_modifier       INTEGER NOT NULL,
+    charisma_modifier       INTEGER NOT NULL
 );
 
 -- Queries
 insert:
-INSERT INTO Race (name) VALUES (?);
+INSERT INTO Race (name,
+                strength_modifier,
+                dexterity_modifier,
+                constitution_modifier,
+                intelligence_modifier,
+                wisdom_modifier,
+                charisma_modifier)
+VALUES (?, ?, ?, ?, ?, ?, ?);
 
 selectAll:
 SELECT * FROM Race;

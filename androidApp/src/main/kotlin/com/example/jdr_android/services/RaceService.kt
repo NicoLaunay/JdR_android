@@ -29,9 +29,17 @@ class RaceService(private val db: JdrDatabase) {
                     .getAllByRaceId(id)
             )
 
-    fun add(name: String, description: String, abilities: List<RacialAbility>) {
+    fun add(name: String, str: Int, dex: Int, con: Int, int: Int, wis: Int, cha: Int, abilities: List<RacialAbility>) {
         require(name.isNotBlank()) { "Le nom ne peut pas être vide" }
-        db.raceQueries.insert(name)
+        db.raceQueries.insert(
+            name,
+            str.toLong(),
+            dex.toLong(),
+            con.toLong(),
+            int.toLong(),
+            wis.toLong(),
+            cha.toLong()
+        )
         val raceId = db.raceQueries
             .lastInsertRowId()
             .executeAsOne()
