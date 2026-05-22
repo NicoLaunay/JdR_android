@@ -15,3 +15,6 @@ SELECT * FROM Race WHERE id = ?;
 
 deleteById:
 DELETE FROM Race WHERE id = ?;
+
+lastInsertRowId:
+SELECT last_insert_rowid();
