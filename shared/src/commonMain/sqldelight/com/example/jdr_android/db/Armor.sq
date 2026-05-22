@@ -5,14 +5,14 @@ CREATE TABLE Armor (
 );
 
 -- Queries
-insertArmor:
+insert:
 INSERT INTO Armor (name,  defense_modifier) VALUES (?, ?);
 
-selectAllArmors:
+selectAll:
 SELECT * FROM Armor;
 
-selectArmorById:
+selectById:
 SELECT * FROM Armor WHERE  id = ?;
 
-deleteArmorById:
+deleteById:
 DELETE FROM Armor WHERE  id = ?;
