@@ -13,5 +13,6 @@ class JdrApplication : Application() {
         database = JdrDatabase(
             DatabaseDriverFactory(this).create()
         )
+        initData(database)
     }
 }
