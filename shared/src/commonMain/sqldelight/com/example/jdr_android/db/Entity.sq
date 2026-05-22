@@ -41,5 +41,17 @@ SELECT * FROM Entity WHERE  id = ?;
 updatePv:
 UPDATE Entity SET pv = ? WHERE  id = ?;
 
+updateLevel:
+UPDATE Entity
+SET level = ?, pv_max = ?, pv = pv_max
+WHERE id = ?;
+
+updateEntity:
+UPDATE Entity
+SET id_race = ?, name = ?, level = ?, age = ?, weight = ?, sex = ?, type = ?, size = ?,
+strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ?,
+pv_max = ?, pv = ?
+WHERE id = ?;
+
 deleteById:
 DELETE FROM Entity WHERE  id = ?;
