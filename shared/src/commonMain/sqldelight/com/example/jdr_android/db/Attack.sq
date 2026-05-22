@@ -9,17 +9,20 @@ CREATE TABLE Attack (
 );
 
 -- Queries Attack
-insertAttack:
+insert:
 INSERT INTO Attack (id_weapon, attack_stat, description) VALUES (?, ?, ?);
 
-selectAllAttacks:
+updateById:
+UPDATE Attack SET (id_weapon, attack_stat, description) = (?, ?, ?) WHERE id = ?;
+
+selectAll:
 SELECT * FROM Attack;
 
-selectAttackById:
+selectById:
 SELECT * FROM Attack WHERE id = ?;
 
-selectAttackByWeapon:
+selectByWeapon:
 SELECT * FROM Attack WHERE id_weapon = ?;
 
-deleteAttackById:
+deleteById:
 DELETE FROM Attack WHERE id = ?;
