@@ -33,22 +33,27 @@ INSERT INTO PlayableCharacter (id_entity, id_player, id_profile,
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 selectAll:
-SELECT pc.*, e.name, e.level, e.id_race
-FROM PlayableCharacter pc
-JOIN Entity e ON e.id = pc.id_entity;
+SELECT * FROM PlayableCharacter;
 
 selectById:
 SELECT * FROM PlayableCharacter WHERE id_entity = ?;
 
-selectByPlayer:
-SELECT pc.*, e.name
-FROM PlayableCharacter pc
-JOIN Entity e ON e.id = pc.id_entity
-WHERE pc.id_player = ?;
+selectAllByPlayer:
+SELECT * FROM PlayableCharacter WHERE id_player = ?;
 
 updateCoins:
 UPDATE PlayableCharacter
 SET coins_copper = ?, coins_silver = ?, coins_gold = ?, coins_platinum = ?
+WHERE id_entity = ?;
+
+updateById:
+UPDATE PlayableCharacter
+SET (id_entity, id_player, id_profile,
+     coins_copper, coins_silver, coins_gold, coins_platinum,
+     pc_max, pc, pr_max, pr, pm_max, pm) =
+     (?,?,?,
+     ?,?,?,?,
+     ?,?,?,?,?,?)
 WHERE id_entity = ?;
 
 deleteById:
