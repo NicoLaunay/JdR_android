@@ -27,6 +27,14 @@ class ArmorService(private val db: JdrDatabase) {
             defenseModifier.toLong())
     }
 
+    fun update(id: Int, name: String, defenseModifier: Int) {
+        require(name.isNotBlank()) { "Le nom ne peut pas être vide" }
+        db.armorQueries.updateById(
+            name,
+            defenseModifier.toLong(),
+            id.toLong())
+    }
+
     fun delete(id: Int) =
         db.armorQueries.deleteById(id.toLong())
 }
