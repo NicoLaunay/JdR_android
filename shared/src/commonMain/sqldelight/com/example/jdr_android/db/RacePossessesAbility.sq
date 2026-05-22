@@ -8,6 +8,9 @@ CREATE TABLE Race_Possesses_Ability (
 );
 
 -- Queries
+selectAll:
+SELECT * FROM Race_Possesses_Ability;
+
 linkRaceToAbility:
 INSERT INTO Race_Possesses_Ability (id_race, id_ability) VALUES (?, ?);
 
