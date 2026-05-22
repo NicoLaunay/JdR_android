@@ -14,5 +14,8 @@ SELECT * FROM Armor;
 selectById:
 SELECT * FROM Armor WHERE  id = ?;
 
+updateById:
+UPDATE Armor SET name = ?, defense_modifier = ? WHERE id = ?;
+
 deleteById:
 DELETE FROM Armor WHERE  id = ?;
