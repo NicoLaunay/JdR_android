@@ -1,6 +1,7 @@
 package com.example.jdr_android.services
 
-import com.example.jdrandroid.db.JdrDatabase
+import com.example.jdr_android.db.JdrDatabase
+import com.example.jdr_android.mappers.toModel
 import com.example.jdr_android.models.Armor
 
 class ArmorService(private val db: JdrDatabase) {

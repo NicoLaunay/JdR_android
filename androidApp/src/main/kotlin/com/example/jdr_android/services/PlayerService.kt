@@ -1,6 +1,6 @@
 package com.example.jdr_android.services
 
-import com.example.jdrandroid.db.JdrDatabase
+import com.example.jdr_android.db.JdrDatabase
 import com.example.jdr_android.models.Player
 
 class PlayerService(private val db: JdrDatabase) {
