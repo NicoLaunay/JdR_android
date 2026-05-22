@@ -4,23 +4,29 @@ import com.example.jdr_android.models.CharacterPath
 import enums.EntitySize
 import enums.EntityType
 
-abstract class Entity(
-    open var name: String,
-    open var type: EntityType,
-    open var size: EntitySize,
+data class Entity(
+    val name: String,
+    val level: Double,
+    val type: EntityType,
+    val size: EntitySize,
 
-    open var strength: Int,
-    open var dexterity: Int,
-    open var constitution: Int,
-    open var intelligence: Int,
-    open var wisdom: Int,
-    open var charisma: Int,
+    val age: Int,
+    val weight: Float,
+    val race: Race,
+    val inventory: Inventory,
 
-    open var pvMax: Int,
-    open var pv: Int,
+    val strength: Int,
+    val dexterity: Int,
+    val constitution: Int,
+    val intelligence: Int,
+    val wisdom: Int,
+    val charisma: Int,
 
-    open var weapons: List<Weapon>,
-    open var armors: List<Armor>,
+    val pvMax: Int,
+    val pv: Int,
 
-    open var paths: List<CharacterPath>
+    val weapons: List<Weapon>,
+    val armors: List<Armor>,
+
+    val paths: List<CharacterPath>
 )

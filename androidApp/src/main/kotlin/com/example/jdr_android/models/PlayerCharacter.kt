@@ -5,14 +5,10 @@ import enums.EntitySize
 import enums.EntityType
 
 data class PlayerCharacter(
-    val player: Player,
-    val level: Int,
-    val age: Int,
-    val weight: Float,
-    val race: Race,
-    val profile: Profile,
+    val entity: Entity,
 
-    val inventory: Inventory,
+    val player: Player,
+    val profile: Profile,
 
     val pcMax: Int,
     val pc: Int,
@@ -20,39 +16,5 @@ data class PlayerCharacter(
     val pr: Int,
     val pmMax: Int,
     val pm: Int,
-
-    override var name: String,
-    override var type: EntityType,
-    override var size: EntitySize,
-
-    override var strength: Int,
-    override var dexterity: Int,
-    override var constitution: Int,
-    override var intelligence: Int,
-    override var wisdom: Int,
-    override var charisma: Int,
-
-    override var pvMax: Int,
-    override var pv: Int,
-
-    override var weapons: List<Weapon>,
-    override var armors: List<Armor>,
-
-    override var paths: List<CharacterPath>
-): Entity(
-    name,
-    type,
-    size,
-    strength,
-    dexterity,
-    constitution,
-    intelligence,
-    wisdom,
-    charisma,
-    pvMax,
-    pv,
-    weapons,
-    armors,
-    paths
 )
 

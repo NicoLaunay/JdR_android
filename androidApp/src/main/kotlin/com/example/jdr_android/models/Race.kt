@@ -1,6 +1,7 @@
 package models
 
 data class Race(
+    val id: Int,
     val name: String,
 
     val strengthModifier: Int,

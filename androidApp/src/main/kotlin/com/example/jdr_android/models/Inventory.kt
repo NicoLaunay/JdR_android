@@ -1,6 +1,7 @@
 package models
 
 data class Inventory(
+    val id: Int,
     var copperCoinsNb: Int,
     var silverCoinsNb: Int,
     var goldCoinsNb: Int,
