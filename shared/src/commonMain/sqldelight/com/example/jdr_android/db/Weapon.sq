@@ -5,14 +5,17 @@ CREATE TABLE Weapon (
 );
 
 -- Queries Weapon
-insertWeapon:
+insert:
 INSERT INTO Weapon (name, description) VALUES (?, ?);
 
-selectAllWeapons:
+selectAll:
 SELECT * FROM Weapon;
 
-selectWeaponById:
+selectById:
 SELECT * FROM Weapon WHERE id = ?;
 
-deleteWeaponById:
+deleteById:
 DELETE FROM Weapon WHERE id = ?;
+
+updateById:
+UPDATE Weapon SET (name, description) = (?, ?) WHERE id = ?;
