@@ -2,7 +2,7 @@ package com.example.jdr_android.controllers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import models.Player
+import com.example.jdr_android.models.Player
 import com.example.jdr_android.services.PlayerService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
