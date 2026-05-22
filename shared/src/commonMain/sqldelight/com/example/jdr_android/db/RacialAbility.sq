@@ -16,3 +16,6 @@ SELECT * FROM RacialAbility WHERE id = ?;
 
 deleteById:
 DELETE FROM RacialAbility WHERE id = ?;
+
+updateById:
+UPDATE RacialAbility SET (name, description) = (?,?) WHERE id = ?;
