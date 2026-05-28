@@ -1,8 +1,10 @@
 CREATE TABLE Attack (
-    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    id_weapon   INTEGER NOT NULL,
-    attack_stat TEXT    NOT NULL,  -- ex : 'STRENGTH', 'DEXTERITY'
-    description TEXT    NOT NULL DEFAULT '',
+    id              INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_weapon       INTEGER NOT NULL,
+    attack_stat     TEXT    NOT NULL,  -- ex : 'STRENGTH', 'DEXTERITY'
+    attack_modifier INTEGER NOT NULL,
+    distance        INTEGER NOT NULL,
+    description     TEXT    NOT NULL DEFAULT "",
 
     FOREIGN KEY (id_weapon) REFERENCES Weapon(id) ON DELETE CASCADE
 
@@ -10,10 +12,11 @@ CREATE TABLE Attack (
 
 -- Queries Attack
 insert:
-INSERT INTO Attack (id_weapon, attack_stat, description) VALUES (?, ?, ?);
+INSERT INTO Attack (id_weapon, attack_stat, attack_modifier, distance, description)
+VALUES (?, ?, ?, ?, ?);
 
 updateById:
-UPDATE Attack SET (id_weapon, attack_stat, description) = (?, ?, ?) WHERE id = ?;
+UPDATE Attack SET (id_weapon, attack_stat, attack_modifier, distance, description) = (?, ?, ?, ?, ?) WHERE id = ?;
 
 selectAll:
 SELECT * FROM Attack;
