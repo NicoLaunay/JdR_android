@@ -1,19 +1,22 @@
 CREATE TABLE Skill (
     id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     name        TEXT    NOT NULL,
-    description TEXT    NOT NULL
+    description TEXT    NOT NULL,
+    isLimited   INTEGER AS kotlin.Boolean NOT NULL,
+    isSpell     INTEGER AS kotlin.Boolean NOT NULL,
+    level       INTEGER NOT NULL
 );
 
 -- Queries Skill
-insertSkill:
-INSERT INTO Skill (name, description) VALUES (?, ?);
+insert:
+INSERT INTO Skill (name, isLimited, isSpell, level, description) VALUES (?, ?, ?, ?, ?);
 
-selectAllSkills:
+selectAll:
 SELECT * FROM Skill;
 
-selectSkillById:
+selectById:
 SELECT * FROM Skill WHERE id  = ?;
 
-deleteSkillById:
+deleteById:
 DELETE FROM Skill WHERE id  = ?;
 
