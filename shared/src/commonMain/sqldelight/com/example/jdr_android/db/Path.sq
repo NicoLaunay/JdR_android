@@ -1,14 +1,15 @@
 CREATE TABLE Path (
-    id         INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    id_profile INTEGER NOT NULL,
-    name       TEXT    NOT NULL,
+    id          INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    id_profile  INTEGER NOT NULL,
+    name        TEXT    NOT NULL,
+    description TEXT,
 
     FOREIGN KEY (id_profile) REFERENCES Profile(id) ON DELETE CASCADE
 );
 
 -- Queries
 insert:
-INSERT INTO Path (id_profile, name) VALUES (?, ?);
+INSERT INTO Path (id_profile, name, description) VALUES (?, ?, ?);
 
 selectAll:
 SELECT * FROM Path;
