@@ -2,7 +2,6 @@
 CREATE TABLE Path_Unlocks_Skill (
     id_path    INTEGER NOT NULL,
     id_skill   INTEGER NOT NULL,
-    skill_level INTEGER NOT NULL,  -- niveau de voie requis pour débloquer
 
     PRIMARY KEY (id_path, id_skill),
     FOREIGN KEY (id_path)  REFERENCES Path(id)  ON DELETE CASCADE,
@@ -11,15 +10,18 @@ CREATE TABLE Path_Unlocks_Skill (
 
 
 -- Queries Path_Unlocks_Skill
+selectAll:
+SELECT * FROM Path_Unlocks_Skill;
+
 linkSkillToPath:
-INSERT INTO Path_Unlocks_Skill (id_path, id_skill, skill_level) VALUES (?, ?, ?);
+INSERT INTO Path_Unlocks_Skill (id_path, id_skill) VALUES (?, ?);
 
 selectSkillsByPath:
-SELECT s.*, ps.skill_level
+SELECT s.*
 FROM Skill s
 JOIN Path_Unlocks_Skill ps ON ps.id_skill = s.id
 WHERE ps.id_path = ?
-ORDER BY ps.skill_level;
+ORDER BY s.level;
 
 unlinkSkillFromPath:
 DELETE FROM Path_Unlocks_Skill WHERE id_path = ? AND id_skill = ?;

@@ -156,4 +156,7 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+
+/scripts
+
 # End of https://www.toptal.com/developers/gitignore/api/android,git,windows,macos,linux,kotlin
