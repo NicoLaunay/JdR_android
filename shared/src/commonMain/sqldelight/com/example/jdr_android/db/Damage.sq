@@ -10,12 +10,15 @@ CREATE TABLE Damage (
 );
 
 -- Queries Damage
-insertDamage:
+selectAll:
+SELECT * FROM Damage;
+
+insert:
 INSERT INTO Damage (id_attack, damage_dice, nb_damage_dice, damage_modifier, damage_type)
 VALUES (?, ?, ?, ?, ?);
 
-selectDamagesByAttack:
+selectByAttack:
 SELECT * FROM Damage WHERE id_attack = ?;
 
-deleteDamageById:
+deleteById:
 DELETE FROM Damage WHERE id = ?;
