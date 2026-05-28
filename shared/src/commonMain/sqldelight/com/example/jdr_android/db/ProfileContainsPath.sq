@@ -8,6 +8,9 @@ CREATE TABLE Profile_Contains_Path (
 );
 
 -- Queries
+selectAll:
+SELECT * FROM Profile_Contains_Path;
+
 linkPathToProfile:
 INSERT INTO Profile_Contains_Path (id_profile, id_path) VALUES (?, ?);
 
