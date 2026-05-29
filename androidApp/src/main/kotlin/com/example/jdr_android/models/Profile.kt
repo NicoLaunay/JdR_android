@@ -6,5 +6,7 @@ data class Profile(
     val id: Int,
     val name: String,
     val lifeDice: DiceType,
-    val paths: List<Path>
+    val paths: List<Path>,
+    val starterWeapons: List<Weapon>,
+    val starterArmors: List<Armor>
 )
