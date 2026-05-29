@@ -24,7 +24,7 @@ SELECT * FROM Attack;
 selectById:
 SELECT * FROM Attack WHERE id = ?;
 
-selectByWeapon:
+selectAllByWeaponId:
 SELECT * FROM Attack WHERE id_weapon = ?;
 
 deleteById:

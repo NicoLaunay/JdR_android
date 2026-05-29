@@ -14,6 +14,18 @@ SELECT * FROM Armor;
 selectById:
 SELECT * FROM Armor WHERE  id = ?;
 
+selectStartersByProfileId:
+SELECT a.*
+FROM Armor a
+JOIN Profile_StartsWith_Armor pswa ON pswa.id_armor = a.id
+WHERE pswa.id_profile = ?;
+
+selectAllByOwnerId:
+SELECT a.*
+FROM Armor a
+JOIN Entity_Wears_Armor ewa ON ewa.id_armor = a.id
+WHERE ewa.id_entity = ?;
+
 updateById:
 UPDATE Armor SET name = ?, defense_modifier = ? WHERE id = ?;
 

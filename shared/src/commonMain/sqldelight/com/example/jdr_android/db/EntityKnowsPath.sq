@@ -10,11 +10,11 @@ CREATE TABLE Entity_Knows_Path (
 );
 
 -- Queries Knows
-insertKnows:
+teachPathToEntity:
 INSERT INTO Entity_Knows_Path (id_entity, id_path, level_reached) VALUES (?, ?, ?);
 
 selectPathsByEntity:
-SELECT p.*, ekp.level_reached
+SELECT *, ekp.level_reached
 FROM Path p
 JOIN Entity_Knows_Path ekp ON ekp.id_path = p.id
 WHERE ekp.id_entity = ?;
@@ -22,5 +22,5 @@ WHERE ekp.id_entity = ?;
 updateLevel:
 UPDATE Entity_Knows_Path SET level_reached = ? WHERE id_entity = ? AND id_path = ?;
 
-deleteKnows:
+deletePathFromEntity:
 DELETE FROM Entity_Knows_Path WHERE id_entity = ? AND id_path = ?;

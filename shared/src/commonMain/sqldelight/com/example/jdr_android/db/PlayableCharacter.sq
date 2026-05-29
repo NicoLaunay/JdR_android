@@ -6,13 +6,7 @@ CREATE TABLE PlayableCharacter (
     id_player    INTEGER NOT NULL,
     id_profile   INTEGER NOT NULL,
 
-    -- Pièces (inventaire monnaie)
-    coins_copper   INTEGER NOT NULL DEFAULT 0,
-    coins_silver   INTEGER NOT NULL DEFAULT 0,
-    coins_gold     INTEGER NOT NULL DEFAULT 0,
-    coins_platinum INTEGER NOT NULL DEFAULT 0,
-
-    -- Points de compétence / ressource
+    -- Points de ressources
     pc_max  INTEGER DEFAULT 0,
     pc      INTEGER DEFAULT 0,
     pr_max  INTEGER DEFAULT 0,
@@ -28,9 +22,8 @@ CREATE TABLE PlayableCharacter (
 -- Queries
 insert:
 INSERT INTO PlayableCharacter (id_entity, id_player, id_profile,
-                                coins_copper, coins_silver, coins_gold, coins_platinum,
                                 pc_max, pc, pr_max, pr, pm_max, pm)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 selectAll:
 SELECT * FROM PlayableCharacter;
@@ -41,18 +34,11 @@ SELECT * FROM PlayableCharacter WHERE id_entity = ?;
 selectAllByPlayer:
 SELECT * FROM PlayableCharacter WHERE id_player = ?;
 
-updateCoins:
-UPDATE PlayableCharacter
-SET coins_copper = ?, coins_silver = ?, coins_gold = ?, coins_platinum = ?
-WHERE id_entity = ?;
-
 updateById:
 UPDATE PlayableCharacter
 SET (id_entity, id_player, id_profile,
-     coins_copper, coins_silver, coins_gold, coins_platinum,
      pc_max, pc, pr_max, pr, pm_max, pm) =
      (?,?,?,
-     ?,?,?,?,
      ?,?,?,?,?,?)
 WHERE id_entity = ?;
 

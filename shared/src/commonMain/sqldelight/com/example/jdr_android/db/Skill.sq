@@ -14,6 +14,11 @@ INSERT INTO Skill (name, isLimited, isSpell, level, description) VALUES (?, ?, ?
 selectAll:
 SELECT * FROM Skill;
 
+selectAllByPathId:
+SELECT s.* FROM Skill s
+JOIN Path_Unlocks_Skill pus ON pus.id_skill = s.id
+WHERE pus.id_path = ?;
+
 selectById:
 SELECT * FROM Skill WHERE id  = ?;
 

@@ -2,6 +2,7 @@ package com.example.jdr_android.models
 
 import com.example.jdr_android.enums.EntitySize
 import com.example.jdr_android.enums.EntityType
+import com.example.jdr_android.enums.Sex
 
 data class Entity(
     val name: String,
@@ -9,10 +10,16 @@ data class Entity(
     val type: EntityType,
     val size: EntitySize,
 
-    val age: Int,
-    val weight: Float,
+    val age: Int?,
+    val weight: Float?,
+    val sex: Sex,
     val race: Race,
-    val inventory: Inventory,
+
+    var copperCoinsNb: Int,
+    var silverCoinsNb: Int,
+    var goldCoinsNb: Int,
+    var platinumCoinsNb: Int,
+    var items: List<String>,
 
     val strength: Int,
     val dexterity: Int,
@@ -27,5 +34,5 @@ data class Entity(
     val weapons: List<Weapon>,
     val armors: List<Armor>,
 
-    val paths: List<CharacterPath>
+    val paths: List<EntityPath>
 )

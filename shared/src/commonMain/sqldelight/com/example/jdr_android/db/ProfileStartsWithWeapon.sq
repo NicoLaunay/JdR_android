@@ -1,0 +1,24 @@
+CREATE TABLE Profile_StartsWith_Weapon (
+    id_profile INTEGER NOT NULL,
+    id_weapon INTEGER NOT NULL,
+
+    PRIMARY KEY (id_profile, id_weapon),
+    FOREIGN KEY (id_profile)  REFERENCES Profile(id)     ON DELETE CASCADE,
+    FOREIGN KEY (id_weapon)    REFERENCES Weapon(id)       ON DELETE CASCADE
+);
+
+-- Queries
+selectAll:
+SELECT * FROM Profile_StartsWith_Weapon;
+
+linkWeaponToProfile:
+INSERT INTO Profile_StartsWith_Weapon (id_profile, id_weapon) VALUES (?, ?);
+
+selectWeaponsByProfile:
+SELECT a.*
+FROM Weapon a
+JOIN Profile_StartsWith_Weapon pswa ON pswa.id_weapon = a.id
+WHERE pswa.id_profile = ?;
+
+unlinkWeaponFromProfile:
+DELETE FROM Profile_StartsWith_Weapon WHERE id_profile = ? AND id_weapon = ?;

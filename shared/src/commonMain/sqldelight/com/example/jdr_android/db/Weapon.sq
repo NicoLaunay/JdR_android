@@ -14,6 +14,18 @@ SELECT * FROM Weapon;
 selectById:
 SELECT * FROM Weapon WHERE id = ?;
 
+selectStartersByProfileId:
+SELECT w.*
+FROM Weapon w
+JOIN Profile_StartsWith_Weapon psww ON psww.id_weapon = w.id
+WHERE psww.id_profile = ?;
+
+selectAllByOwnerId:
+SELECT w.*
+FROM Weapon w
+JOIN Entity_Uses_Weapon euw ON euw.id_weapon = w.id
+WHERE euw.id_entity = ?;
+
 deleteById:
 DELETE FROM Weapon WHERE id = ?;
 

@@ -4,7 +4,7 @@ CREATE TABLE Damage (
     damage_dice     TEXT    NOT NULL,   -- ex : 'D6', 'D8'
     nb_damage_dice  INTEGER NOT NULL,
     damage_modifier INTEGER NOT NULL DEFAULT 0,
-    damage_type     TEXT,   -- ex : 'SLASHING', 'FIRE', 'COLD'
+    damage_type     TEXT    NOT NULL,
 
     FOREIGN KEY (id_attack) REFERENCES Attack(id) ON DELETE CASCADE
 );
@@ -17,7 +17,7 @@ insert:
 INSERT INTO Damage (id_attack, damage_dice, nb_damage_dice, damage_modifier, damage_type)
 VALUES (?, ?, ?, ?, ?);
 
-selectByAttack:
+selectAllByAttackId:
 SELECT * FROM Damage WHERE id_attack = ?;
 
 deleteById:

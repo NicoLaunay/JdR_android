@@ -1115,7 +1115,6 @@ fun initData(db: JdrDatabase) {
         db.damageQueries.insert(24, DiceType.D6.toString(), 1, 0, DamageType.PHYSICAL.toString())
         db.damageQueries.insert(25, DiceType.D6.toString(), 2, 0, DamageType.PHYSICAL.toString())
         db.damageQueries.insert(26, DiceType.D10.toString(), 1, 0, DamageType.PHYSICAL.toString())
-
     }
 
 }

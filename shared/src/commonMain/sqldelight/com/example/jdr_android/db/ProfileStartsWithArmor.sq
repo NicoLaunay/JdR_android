@@ -1,0 +1,18 @@
+CREATE TABLE Profile_StartsWith_Armor (
+    id_profile INTEGER NOT NULL,
+    id_armor INTEGER NOT NULL,
+
+    PRIMARY KEY (id_profile, id_armor),
+    FOREIGN KEY (id_profile)  REFERENCES Profile(id)     ON DELETE CASCADE,
+    FOREIGN KEY (id_armor)    REFERENCES Armor(id)       ON DELETE CASCADE
+);
+
+-- Queries
+selectAll:
+SELECT * FROM Profile_StartsWith_Armor;
+
+linkArmorToProfile:
+INSERT INTO Profile_StartsWith_Armor (id_profile, id_armor) VALUES (?, ?);
+
+unlinkArmorFromProfile:
+DELETE FROM Profile_StartsWith_Armor WHERE id_profile = ? AND id_armor = ?;

@@ -14,6 +14,22 @@ class ArmorService(private val db: JdrDatabase) {
                 it.toModel()
             }  // SQLDelight → modèle
 
+    fun getStartersByProfileId(profileId: Int): List<Armor> =
+        db.armorQueries
+            .selectStartersByProfileId(profileId.toLong())
+            .executeAsList()
+            .map {
+                it.toModel()
+            }
+
+    fun getAllByOwnerId(ownerId: Int): List<Armor> =
+        db.armorQueries
+            .selectAllByOwnerId(ownerId.toLong())
+            .executeAsList()
+            .map {
+                it.toModel()
+            }
+
     fun getById(id: Int): Armor? =
         db.armorQueries
             .selectById(id.toLong())
